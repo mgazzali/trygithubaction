@@ -34,6 +34,18 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: ServiceNow Change
+        uses: ServiceNow/servicenow-devops-change@v3.0.0
+        with:
+          devops-integration-user-name: ${{ secrets.SN_USER }}
+          devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
+          # ServiceNow Instance URL
+          instance-url: ${{ secrets.SN_INSTANCE_URL }}
+          # Orchestration Tool Id
+          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+          # GitHub Context
+          context-github: ${{ toJSON(github) }}
+          
   ServiceNowDevOpsChange:
     needs: build
     # type of machine to run the job on
