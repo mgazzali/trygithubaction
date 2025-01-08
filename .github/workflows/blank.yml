@@ -45,6 +45,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           # GitHub Context
           context-github: ${{ toJSON(github) }}
+          job-name: 'ServiceNow DevOps Change'
           
   ServiceNowDevOpsChange:
     needs: build
